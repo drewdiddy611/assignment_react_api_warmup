@@ -15,7 +15,7 @@ const UserCard = ({user}) => {
     >
       <img
         className="card-img-top img-fluid"
-        src={user.avatar}
+        src={avatar}
         alt="user avatar"
       />
       <div className="card-block">

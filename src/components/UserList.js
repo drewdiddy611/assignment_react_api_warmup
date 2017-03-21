@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import UserCard from './UserCard'
 
 const UserList = ({users, isFetching}) => {

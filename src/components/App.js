@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import JumbotronFluid from './elements/JumbotronFluid'
 import UserList from './UserList'
+import InputGroup from './elements/InputGroup'
+import Input from './elements/Input'
+import Button from './elements/Button'
 
 class App extends Component {
   constructor() {
@@ -32,6 +35,11 @@ class App extends Component {
       })
   }
 
+  onAddUser = (e) => {
+    e.preventDefault()
+    console.log('submitted!')
+  }
+
   render() {
     const {users, isFetching} = this.state
 
@@ -42,6 +50,17 @@ class App extends Component {
           lead="Using an API for User CRUD operations in React Applications"
         />
         <UserList users={users} isFetching={isFetching} />
+        <hr />
+          <form className="container" onSubmit={this.onAddUser}>
+            <h1>Add a New User</h1>
+            <InputGroup name="name" labelText="Name">
+              <Input name="name" />
+            </InputGroup>
+            <InputGroup name="photo" labelText="Photo Link">
+              <Input name="photo" />
+            </InputGroup>
+            <Button type="submit">Save User</Button>
+          </form>
       </div>
     )
   }
