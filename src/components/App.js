@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import JumbotronFluid from './elements/JumbotronFluid'
 import UserList from './UserList'
-import InputGroup from './elements/InputGroup'
-import Input from './elements/Input'
-import Button from './elements/Button'
+import UserForm from './UserForm'
+import serialize from 'form-serialize'
 
 class App extends Component {
   constructor() {
@@ -35,6 +34,13 @@ class App extends Component {
       })
   }
 
+  onAddUser = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const body = serialize(form, {hash: true})
+    console.log(body)
+  }
+
   render() {
     const {users, isFetching} = this.state
 
@@ -45,6 +51,8 @@ class App extends Component {
           lead="Using an API for User CRUD operations in React Applications"
         />
         <UserList users={users} isFetching={isFetching} />
+        <br />
+        <UserForm onSubmit={this.onAddUser} />
       </div>
     )
   }
