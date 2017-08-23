@@ -49,7 +49,7 @@ class UserForm extends React.Component {
 					<Input name="avatar" value={avatar} onChange={this.onTextChanged} />
 				</InputGroup>
 				{id ? <input type="hidden" name="id" value={id} /> : ''}
-				<Button type="submit" onClick={this.onUserFormSubmit} color="primary">
+				<Button type="submit" color="primary">
 					Save User
 				</Button>
 			</form>
