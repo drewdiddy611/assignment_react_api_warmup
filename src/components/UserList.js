@@ -2,17 +2,20 @@ import React from 'react';
 import UserCard from './UserCard';
 import UserForm from './UserForm';
 
+const EMPTY_USER = {
+	first_name: '',
+	last_name: '',
+	avatar: ''
+};
 class UserList extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			userForm: { type: UserForm.STATE_ADD },
-			user: {
-				first_name: '',
-				last_name: '',
-				avatar: ''
-			}
+			userForm: {
+				type: UserForm.STATE_ADD
+			},
+			user: EMPTY_USER
 		};
 	}
 
@@ -34,7 +37,10 @@ class UserList extends React.Component {
 	};
 
 	onUserFormSubmit = e => {
-		this.setState({ userForm: { type: UserForm.STATE_ADD } });
+		this.setState({
+			user: EMPTY_USER,
+			userForm: { type: UserForm.STATE_ADD }
+		});
 	};
 
 	render() {

@@ -10,7 +10,8 @@ class UserForm extends React.Component {
 		this.props.onUserFormTextChanged(e);
 	};
 
-	onUserFormSubmit = e => {
+	onDataSetChanged = type => e => {
+		this.props.onDataSetChanged(type)(e);
 		this.props.onUserFormSubmit(e);
 	};
 
@@ -20,7 +21,7 @@ class UserForm extends React.Component {
 		return (
 			<form
 				className="container"
-				onSubmit={onDataSetChanged(this.props.userForm.type)}
+				onSubmit={this.onDataSetChanged(this.props.userForm.type)}
 			>
 				<h1>
 					{this.props.userForm.type !== UserForm.STATE_EDIT

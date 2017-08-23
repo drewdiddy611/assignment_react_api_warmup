@@ -78,7 +78,9 @@ class AppContainer extends Component {
 					users
 				},
 				() => {
-					if (form && type !== 'delete') form.reset();
+					if (form && type !== 'delete') {
+						form.reset();
+					}
 				}
 			);
 		} catch (error) {
