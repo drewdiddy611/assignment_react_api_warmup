@@ -7,7 +7,7 @@ class UserList extends React.Component {
 		super(props);
 
 		this.state = {
-			type: UserForm.STATE_ADD,
+			userForm: { type: UserForm.STATE_ADD },
 			user: {
 				first_name: '',
 				last_name: '',
@@ -20,7 +20,7 @@ class UserList extends React.Component {
 		e.preventDefault();
 
 		this.setState({
-			type: UserForm.STATE_EDIT,
+			userForm: { type: UserForm.STATE_EDIT },
 			user
 		});
 	};
@@ -34,7 +34,7 @@ class UserList extends React.Component {
 	};
 
 	onUserFormSubmit = e => {
-		this.setState({ type: UserForm.STATE_ADD });
+		this.setState({ userForm: { type: UserForm.STATE_ADD } });
 	};
 
 	render() {
