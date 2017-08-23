@@ -10,14 +10,13 @@ class UserForm extends React.Component {
 		this.props.onUserFormTextChanged(e);
 	};
 
-	onDataSetChanged = type => e => {
-		this.props.onDataSetChanged(type)(e);
+	onDataSetChanged = type => async e => {
+		await this.props.onDataSetChanged(type)(e);
 		this.props.onUserFormSubmit(e);
 	};
 
 	render() {
-		const { first_name, last_name, avatar, id } = this.props.user;
-		const { onDataSetChanged, error } = this.props;
+		const { id, first_name, last_name, avatar } = this.props.user;
 		return (
 			<form
 				className="container"
@@ -29,7 +28,7 @@ class UserForm extends React.Component {
 						: 'Edit'}{' '}
 					User
 				</h1>
-				<Showable show={error}>
+				<Showable show={this.props.error}>
 					<Alert type="danger">Oops, there was a problem...</Alert>
 				</Showable>
 				<InputGroup name="first_name" labelText="First Name">
